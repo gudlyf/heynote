@@ -270,6 +270,25 @@ A PopClip extension is included in the `extras/popclip/` directory. To install i
 
 Once configured, select any text and click the Heynote "H" icon in PopClip to append it to your scratch note. You can change the target note and port in the extension settings.
 
+### Raycast Script Commands
+
+Two Raycast script commands are included in the `extras/raycast/` directory:
+
+-   **Append to Heynote** — Append text to a note (with optional note path and language)
+-   **List Heynote Notes** — List all notes in your library
+
+To install:
+
+1. Enable the API in Heynote (see above) and restart
+2. Set the `HEYNOTE_API_TOKEN` environment variable in your shell profile (e.g. `~/.zshrc`):
+    ```bash
+    export HEYNOTE_API_TOKEN="your_token_here"
+    ```
+3. In Raycast, open Preferences → Extensions → click **+** → **Add Script Directory**
+4. Select the `extras/raycast/` directory
+
+You can optionally set `HEYNOTE_API_PORT` if you changed the default port from 5095.
+
 
 ## Linux<a id="linux"></a>
 
