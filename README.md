@@ -1,7 +1,7 @@
 # Heynote
 
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/heyman/heynote)](https://github.com/heyman/heynote/releases)
-[![Build Status](https://github.com/heyman/heynote/workflows/Tests/badge.svg)](https://github.com/heyman/heynote/actions?query=workflow%3ATests)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gudlyf/heynote)](https://github.com/gudlyf/heynote/releases)
+[![Build Status](https://github.com/gudlyf/heynote/workflows/Tests/badge.svg)](https://github.com/gudlyf/heynote/actions?query=workflow%3ATests)
 
 <img src="https://heynote.com/img/logo.png" style="width:79px;">
 
