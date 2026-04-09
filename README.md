@@ -6,11 +6,11 @@
 
 <img src="https://heynote.com/img/logo.png" style="width:79px;">
 
-## General Information (from [Original Version](https://github.com/heyman/heynote))
+## General Information
 
 - [Website](https://heynote.com)
-- [Documentation](https://heynote.com/docs/)
-- [Changelog](https://heynote.com/docs/changelog/)
+- [Documentation](docs/index.md)
+- [Changelog](docs/changelog.md)
 
 Heynote is a dedicated scratchpad for developers and power users. It functions as a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, your daily to-do list, etc. 
 
@@ -44,9 +44,9 @@ This fork of Heynote includes an optional local HTTP API that lets external tool
 
 See the [API documentation](docs/index.md#api) for setup and usage.
 
-## Documentation (from [Original Version](https://github.com/heyman/heynote))
+## Documentation
 
-[Documentation](https://heynote.com/docs/) is available on the Heynote website.
+[Documentation](docs/index.md) is available in this repository.
 
 ## Development
 
@@ -81,7 +81,7 @@ I'm happy to merge contributions that fit my vision for the app. Bug fixes are a
 
 ### Where is the buffer data stored?
 
-See the [documentation](https://heynote.com/docs/#user-content-the-notes-library).
+See the [documentation](docs/index.md#the-notes-library).
 
 ### Can you make a mobile app?
 
@@ -89,7 +89,7 @@ No, at the moment this is out of scope, sorry.
 
 ### What are the default keyboard shortcuts?
 
-See the [documentation](https://heynote.com/docs/#user-content-default-key-bindings).
+See the [documentation](docs/index.md#default-key-bindings).
 
 
 ## Thanks!
