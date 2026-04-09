@@ -42,7 +42,7 @@ Available for Mac, Windows, and Linux.
 
 This fork of Heynote includes an optional local HTTP API that lets external tools append text directly to your notes. Use it with [PopClip](https://www.popclip.app/), [Raycast](https://www.raycast.com/), Alfred, Apple Shortcuts, or any tool that can make HTTP requests. The API runs on localhost only with bearer token authentication. Ready-to-use PopClip and Raycast extensions are included in the `extras/` directory.
 
-See the [API documentation](https://heynote.com/docs/#user-content-api) for setup and usage.
+See the [API documentation](docs/index.md#api) for setup and usage.
 
 ## Documentation (from [Original Version](https://github.com/heyman/heynote))
 

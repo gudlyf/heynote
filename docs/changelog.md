@@ -10,7 +10,7 @@ Heynote now includes an optional local HTTP API that allows external tools to ap
 server binds to localhost only and requires bearer token authentication for security. This opens up integrations 
 with tools like PopClip, Raycast, Alfred, Apple Shortcuts, and custom scripts.
 
-See the [API documentation](https://heynote.com/docs/#user-content-api) for setup and usage details.
+See the [API documentation](index.md#api) for setup and usage details.
 
 ### Bundled extensions
 
