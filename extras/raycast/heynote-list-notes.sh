@@ -12,12 +12,18 @@
 # @raycast.author Heynote
 # @raycast.authorURL https://heynote.com
 
-# Configuration — set these to match your Heynote config
-API_TOKEN="${HEYNOTE_API_TOKEN:-}"
-API_PORT="${HEYNOTE_API_PORT:-5095}"
+# Read token and port from Heynote's config file
+HEYNOTE_CONFIG="$HOME/Library/Application Support/Heynote/config.json"
+if [ ! -f "$HEYNOTE_CONFIG" ]; then
+    echo "Error: Heynote config not found at $HEYNOTE_CONFIG"
+    exit 1
+fi
+
+API_TOKEN=$(python3 -c "import json; c=json.load(open('$HEYNOTE_CONFIG')); print(c.get('settings',{}).get('apiToken',''))")
+API_PORT=$(python3 -c "import json; c=json.load(open('$HEYNOTE_CONFIG')); print(c.get('settings',{}).get('apiPort',5095))")
 
 if [ -z "$API_TOKEN" ]; then
-    echo "Error: Set HEYNOTE_API_TOKEN environment variable in Raycast preferences or shell profile"
+    echo "Error: API token not found in Heynote config. Enable the API and restart Heynote."
     exit 1
 fi
 

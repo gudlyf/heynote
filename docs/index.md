@@ -280,14 +280,10 @@ Two Raycast script commands are included in the `extras/raycast/` directory:
 To install:
 
 1. Enable the API in Heynote (see above) and restart
-2. Set the `HEYNOTE_API_TOKEN` environment variable in your shell profile (e.g. `~/.zshrc`):
-    ```bash
-    export HEYNOTE_API_TOKEN="your_token_here"
-    ```
-3. In Raycast, open Preferences → Extensions → click **+** → **Add Script Directory**
-4. Select the `extras/raycast/` directory
+2. In Raycast, open Preferences → Extensions → click **+** → **Add Script Directory**
+3. Select the `extras/raycast/` directory
 
-You can optionally set `HEYNOTE_API_PORT` if you changed the default port from 5095.
+The scripts automatically read the API token and port from Heynote's config file, so no additional configuration is needed.
 
 
 ## Linux<a id="linux"></a>
