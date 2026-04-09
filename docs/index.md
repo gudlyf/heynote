@@ -264,11 +264,9 @@ The API server binds to `127.0.0.1` only (localhost) and is not accessible from 
 A PopClip extension is included in the `extras/popclip/` directory. To install it:
 
 1. Enable the API in Heynote (see above) and restart
-2. Copy the API token from your config file
-3. Double-click `extras/popclip/HeynoteAppend.popclipext` to install it in PopClip
-4. In the PopClip extension settings, paste your API token
+2. Double-click `extras/popclip/HeynoteAppend.popclipext` to install it in PopClip
 
-Once configured, select any text and click the Heynote "H" icon in PopClip to append it to your scratch note. You can change the target note and port in the extension settings.
+The extension automatically reads the API token and port from Heynote's config file. Once installed, select any text and click the Heynote "H" icon in PopClip to append it to your scratch note. You can change the target note in the extension settings.
 
 ### Raycast Script Commands
 

@@ -31,28 +31,6 @@
     <array>
         <dict>
             <key>identifier</key>
-            <string>apiToken</string>
-            <key>type</key>
-            <string>string</string>
-            <key>label</key>
-            <string>API Token</string>
-            <key>description</key>
-            <string>The API token from Heynote's config file</string>
-        </dict>
-        <dict>
-            <key>identifier</key>
-            <string>apiPort</string>
-            <key>type</key>
-            <string>string</string>
-            <key>label</key>
-            <string>API Port</string>
-            <key>defaultValue</key>
-            <string>5095</string>
-            <key>description</key>
-            <string>The port Heynote API is listening on</string>
-        </dict>
-        <dict>
-            <key>identifier</key>
             <string>notePath</string>
             <key>type</key>
             <string>string</string>

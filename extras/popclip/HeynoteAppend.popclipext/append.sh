@@ -3,12 +3,20 @@
 # POPCLIP_TEXT contains the selected text
 # POPCLIP_OPTION_* contains the extension options
 
-PORT="${POPCLIP_OPTION_APIPORT:-5095}"
-TOKEN="$POPCLIP_OPTION_APITOKEN"
 NOTE_PATH="${POPCLIP_OPTION_NOTEPATH:-scratch.txt}"
 
+# Read token and port from Heynote's config file
+HEYNOTE_CONFIG="$HOME/Library/Application Support/Heynote/config.json"
+if [ ! -f "$HEYNOTE_CONFIG" ]; then
+    echo "Error: Heynote config not found" >&2
+    exit 1
+fi
+
+TOKEN=$(python3 -c "import json; c=json.load(open('$HEYNOTE_CONFIG')); print(c.get('settings',{}).get('apiToken',''))")
+PORT=$(python3 -c "import json; c=json.load(open('$HEYNOTE_CONFIG')); print(c.get('settings',{}).get('apiPort',5095))")
+
 if [ -z "$TOKEN" ]; then
-    echo "Error: API token not configured" >&2
+    echo "Error: API token not found. Enable the API in Heynote and restart." >&2
     exit 1
 fi
 
