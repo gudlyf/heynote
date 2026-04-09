@@ -36,8 +36,12 @@ Available for Mac, Windows, and Linux.
 -   Option to set a global hotkey to show/hide the app
 -   Default, Emacs-like or custom key bindings
 -   Spellchecking
--   Local HTTP API for external integrations (PopClip, Raycast, etc.)
 
+## Local HTTP API
+
+Heynote includes an optional local HTTP API that lets external tools append text directly to your notes. Use it with [PopClip](https://www.popclip.app/), [Raycast](https://www.raycast.com/), Alfred, Apple Shortcuts, or any tool that can make HTTP requests. The API runs on localhost only with bearer token authentication. Ready-to-use PopClip and Raycast extensions are included in the `extras/` directory.
+
+See the [API documentation](https://heynote.com/docs/#user-content-api) for setup and usage.
 
 ## Documentation
 

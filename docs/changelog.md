@@ -2,7 +2,24 @@
 
 Here are the most notable changes in each release. For a more detailed list of changes, see the [Github Releases page](https://github.com/heyman/heynote/releases).
 
-## Not yet released
+## 2.9.0
+
+### Local HTTP API
+
+Heynote now includes an optional local HTTP API that allows external tools to append text to your notes. The API 
+server binds to localhost only and requires bearer token authentication for security. This opens up integrations 
+with tools like PopClip, Raycast, Alfred, Apple Shortcuts, and custom scripts.
+
+See the [API documentation](https://heynote.com/docs/#user-content-api) for setup and usage details.
+
+### Bundled extensions
+
+- **PopClip extension** — Select text anywhere and append it to a Heynote note with one click
+- **Raycast script commands** — Append text to notes and list notes directly from Raycast
+
+Both extensions automatically read configuration from Heynote's config file, so no manual token setup is required.
+
+### Other changes
 
 - Persist the search query between different buffers, and between restarts
 
