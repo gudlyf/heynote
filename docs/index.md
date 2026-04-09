@@ -27,6 +27,7 @@ Available for Mac, Windows, and Linux.
 -   Option to set a global hotkey to show/hide the app
 -   Default, Emacs-like or custom key bindings
 -   Spellchecking
+-   [Local HTTP API](#user-content-api) for external integrations (PopClip, Raycast, etc.)
 
 
 ## Default Key Bindings<a id="default-key-bindings"></a>
@@ -166,6 +167,108 @@ As always, backup things that are important.
 ## Spellchecking
 
 Spellchecking can be toggled on or off by clicking the spellchecking icon in the status bar. Right-clicking the icon on Windows and Linux allows you to select the active dictionaries (on Mac, the default OS dictionary is used).  
+
+
+## API<a id="api"></a>
+
+Heynote includes an optional local HTTP API that allows external tools (such as [PopClip](https://www.popclip.app/), Raycast, Alfred, Apple Shortcuts, or custom scripts) to append text to your notes.
+
+### Enabling the API
+
+The API is disabled by default. To enable it, add the following to your Heynote config file:
+
+-   Mac: `~/Library/Application Support/Heynote/config.json`
+-   Windows: `%APPDATA%\Heynote\config.json`
+-   Linux: `~/.config/Heynote/config.json`
+
+Set `enableAPI` to `true` under `settings`:
+
+```json
+{
+  "settings": {
+    "enableAPI": true,
+    "apiPort": 5095
+  }
+}
+```
+
+Restart Heynote after making changes. On first start with the API enabled, a bearer token will be auto-generated and saved to the config file as `apiToken`. You will need this token to authenticate API requests.
+
+### Authentication
+
+All API requests require a Bearer token in the `Authorization` header:
+
+```
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+The token can be found in your config file under `settings.apiToken`.
+
+### Endpoints
+
+#### `POST /api/append`
+
+Append text as a new block to a note.
+
+**Request body** (JSON):
+
+| Field      | Type   | Required | Default       | Description                            |
+|------------|--------|----------|---------------|----------------------------------------|
+| `text`     | string | Yes      |               | The text to append                     |
+| `path`     | string | No       | `scratch.txt` | Path to the note file                  |
+| `language` | string | No       | `text`        | Block language (e.g. `markdown`, `json`, `python`) |
+
+**Example:**
+
+```bash
+curl -X POST http://127.0.0.1:5095/api/append \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -d '{"text": "Hello from the API!", "language": "markdown"}'
+```
+
+**Response:**
+
+```json
+{"ok": true, "path": "scratch.txt"}
+```
+
+#### `GET /api/notes`
+
+List all available notes.
+
+**Example:**
+
+```bash
+curl http://127.0.0.1:5095/api/notes \
+  -H "Authorization: Bearer YOUR_API_TOKEN"
+```
+
+**Response:**
+
+```json
+{
+  "notes": {
+    "scratch.txt": {"name": "Scratch", "tags": []},
+    "work/todo.txt": {"name": "Work Todo", "tags": []}
+  }
+}
+```
+
+### Security
+
+The API server binds to `127.0.0.1` only (localhost) and is not accessible from the network. All requests require a bearer token for authentication. The token is a cryptographically random 64-character hex string generated on first use.
+
+### PopClip Extension
+
+A PopClip extension is included in the `extras/popclip/` directory. To install it:
+
+1. Enable the API in Heynote (see above) and restart
+2. Copy the API token from your config file
+3. Double-click `extras/popclip/HeynoteAppend.popclipext` to install it in PopClip
+4. In the PopClip extension settings, paste your API token
+
+Once configured, select any text and click the Heynote "H" icon in PopClip to append it to your scratch note. You can change the target note and port in the extension settings.
 
 
 ## Linux<a id="linux"></a>

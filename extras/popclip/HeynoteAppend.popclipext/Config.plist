@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>popclipVersion</key>
+    <integer>4151</integer>
+    <key>identifier</key>
+    <string>com.heynote.popclip.append</string>
+    <key>name</key>
+    <string>Heynote</string>
+    <key>icon</key>
+    <string>text H</string>
+    <key>description</key>
+    <string>Append selected text to a Heynote note</string>
+    <key>actions</key>
+    <array>
+        <dict>
+            <key>title</key>
+            <string>Append to Heynote</string>
+            <key>shell script file</key>
+            <string>append.sh</string>
+            <key>after</key>
+            <string>show-result</string>
+            <key>requirements</key>
+            <array>
+                <string>text</string>
+            </array>
+        </dict>
+    </array>
+    <key>options</key>
+    <array>
+        <dict>
+            <key>identifier</key>
+            <string>apiToken</string>
+            <key>type</key>
+            <string>string</string>
+            <key>label</key>
+            <string>API Token</string>
+            <key>description</key>
+            <string>The API token from Heynote's config file</string>
+        </dict>
+        <dict>
+            <key>identifier</key>
+            <string>apiPort</string>
+            <key>type</key>
+            <string>string</string>
+            <key>label</key>
+            <string>API Port</string>
+            <key>defaultValue</key>
+            <string>5095</string>
+            <key>description</key>
+            <string>The port Heynote API is listening on</string>
+        </dict>
+        <dict>
+            <key>identifier</key>
+            <string>notePath</string>
+            <key>type</key>
+            <string>string</string>
+            <key>label</key>
+            <string>Note Path</string>
+            <key>defaultValue</key>
+            <string>scratch.txt</string>
+            <key>description</key>
+            <string>Path to the note file (e.g. scratch.txt)</string>
+        </dict>
+    </array>
+</dict>
+</plist>

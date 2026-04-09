@@ -64,6 +64,9 @@ const schema = {
             "spellcheckEnabled": {type: "boolean", default:false},
             "showWhitespace": {type:"boolean", default:false},
             "cursorBlinkRate": {type: "integer", default: 1000},
+            "enableAPI": {type: "boolean", default: false},
+            "apiPort": {type: "integer", default: 5095},
+            "apiToken": {type: "string"},
             "drawSettings": {
                 type: "object",
                 properties: {
@@ -147,6 +150,8 @@ const defaults = {
         spellcheckEnabled: false,
         showWhitespace: false,
         cursorBlinkRate: 1000,
+        enableAPI: false,
+        apiPort: 5095,
     },
     theme: "system",
 }

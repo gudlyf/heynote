@@ -22,6 +22,7 @@ import {
     NOTES_DIR_NAME 
 } from './file-library';
 import { registerProtocol, registerProtocolBeforeAppReady } from "./protocol.js"
+import { startApiServer, stopApiServer, updateApiServerLibrary, ensureApiToken } from "./api-server.js"
 
 
 // The built directory structure
@@ -402,12 +403,22 @@ function registerAlwaysOnTop() {
     }
 }
 
+function registerApiServer() {
+    if (CONFIG.get("settings.enableAPI") && fileLibrary) {
+        const token = ensureApiToken(CONFIG)
+        startApiServer(fileLibrary, CONFIG.get("settings.apiPort"), token, win)
+    } else {
+        stopApiServer()
+    }
+}
+
 // register heynote-file:// protocol
 registerProtocolBeforeAppReady()
 
 app.whenReady().then(createWindow).then(async () => {
     initFileLibrary(win).then(() => {
         setupFileLibraryEventHandlers()
+        registerApiServer()
     })
     initializeAutoUpdate(win)
     registerGlobalHotkey()
@@ -419,6 +430,7 @@ app.whenReady().then(createWindow).then(async () => {
 app.on("before-quit", () => {
     // if CMD+Q is pressed, we want to quit the app even if we're using a Menu/Tray icon
     setForceQuit()
+    stopApiServer()
 })
 
 app.on('window-all-closed', () => {
@@ -534,6 +546,7 @@ ipcMain.handle('settings:set', async (event, settings) => {
     let showInMenuChanged = settings.showInMenu !== CONFIG.get("settings.showInMenu");
     let bufferPathChanged = settings.bufferPath !== CONFIG.get("settings.bufferPath");
     let alwaysOnTopChanged = settings.alwaysOnTop !== CONFIG.get("settings.alwaysOnTop");
+    let apiChanged = settings.enableAPI !== CONFIG.get("settings.enableAPI") || settings.apiPort !== CONFIG.get("settings.apiPort");
     CONFIG.set("settings", settings)
 
     win?.webContents.send(SETTINGS_CHANGE_EVENT, settings)
@@ -550,12 +563,17 @@ ipcMain.handle('settings:set', async (event, settings) => {
     if (alwaysOnTopChanged) {
         registerAlwaysOnTop()
     }
+    if (apiChanged) {
+        stopApiServer()
+        registerApiServer()
+    }
     if (bufferPathChanged) {
         console.log("bufferPath changed, closing existing file library")
         fileLibrary.close()
         console.log("initializing new file library")
         await initFileLibrary(win)
         win.webContents.send("library:pathChanged")
+        updateApiServerLibrary(fileLibrary)
     }
 })
 

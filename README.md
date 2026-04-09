@@ -36,6 +36,7 @@ Available for Mac, Windows, and Linux.
 -   Option to set a global hotkey to show/hide the app
 -   Default, Emacs-like or custom key bindings
 -   Spellchecking
+-   Local HTTP API for external integrations (PopClip, Raycast, etc.)
 
 
 ## Documentation
