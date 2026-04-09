@@ -1,11 +1,12 @@
 # Heynote
+## Now with API access!
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gudlyf/heynote)](https://github.com/gudlyf/heynote/releases)
 [![Build Status](https://github.com/gudlyf/heynote/workflows/Tests/badge.svg)](https://github.com/gudlyf/heynote/actions?query=workflow%3ATests)
 
 <img src="https://heynote.com/img/logo.png" style="width:79px;">
 
-## General Information
+## General Information (from [Original Version](https://github.com/heyman/heynote))
 
 - [Website](https://heynote.com)
 - [Documentation](https://heynote.com/docs/)
@@ -39,11 +40,11 @@ Available for Mac, Windows, and Linux.
 
 ## Local HTTP API
 
-Heynote includes an optional local HTTP API that lets external tools append text directly to your notes. Use it with [PopClip](https://www.popclip.app/), [Raycast](https://www.raycast.com/), Alfred, Apple Shortcuts, or any tool that can make HTTP requests. The API runs on localhost only with bearer token authentication. Ready-to-use PopClip and Raycast extensions are included in the `extras/` directory.
+This fork of Heynote includes an optional local HTTP API that lets external tools append text directly to your notes. Use it with [PopClip](https://www.popclip.app/), [Raycast](https://www.raycast.com/), Alfred, Apple Shortcuts, or any tool that can make HTTP requests. The API runs on localhost only with bearer token authentication. Ready-to-use PopClip and Raycast extensions are included in the `extras/` directory.
 
 See the [API documentation](https://heynote.com/docs/#user-content-api) for setup and usage.
 
-## Documentation
+## Documentation (from [Original Version](https://github.com/heyman/heynote))
 
 [Documentation](https://heynote.com/docs/) is available on the Heynote website.
 
